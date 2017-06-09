@@ -1,0 +1,6 @@
+c:\users\thiev\documents\visual studio 2017\Projects\Graph2\Graph2\bin\Debug\Graph2.exe.config
+c:\users\thiev\documents\visual studio 2017\Projects\Graph2\Graph2\bin\Debug\Graph2.exe
+c:\users\thiev\documents\visual studio 2017\Projects\Graph2\Graph2\bin\Debug\Graph2.pdb
+c:\users\thiev\documents\visual studio 2017\Projects\Graph2\Graph2\obj\Debug\Graph2.csprojResolveAssemblyReference.cache
+c:\users\thiev\documents\visual studio 2017\Projects\Graph2\Graph2\obj\Debug\Graph2.exe
+c:\users\thiev\documents\visual studio 2017\Projects\Graph2\Graph2\obj\Debug\Graph2.pdb
