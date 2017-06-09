@@ -74,11 +74,15 @@ namespace intervalGraphChecker
                 Console.Out.WriteLine(person.ToString());
             }
 
-            Path annToAnnPath = new Path(ann, ann, null, true);
+            PathFinder annToAnnPath = new PathFinder(georgia, emily, null, true);
 
             CycleList cycles = new CycleList();
 
             annToAnnPath.GetAllCycle(ref cycles);
+
+            List<Path> paths = new List<Path>();
+
+            annToAnnPath.GetAllCompletedPath(ref paths);
 
             foreach (Cycle cycle in cycles)
             {
@@ -91,9 +95,20 @@ namespace intervalGraphChecker
             Console.Out.WriteLine("-------------------------------------CYCLES IRREGULIERS------------------------------------------------");
             Console.Out.WriteLine("-------------------------------------------------------------------------------------------------------");
 
-            foreach(Cycle cycle in cycles.GetAllIrregularCycle())
+            foreach (Cycle cycle in cycles.GetAllIrregularCycle())
             {
-              Console.Out.WriteLine(cycle.ToString());
+                Console.Out.WriteLine(cycle.ToString());
+            }
+
+
+            Console.Out.WriteLine();
+            Console.Out.WriteLine("-------------------------------------------------------------------------------------------------------");
+            Console.Out.WriteLine("----------------------------------------PATH COMPLET---------------------------------------------------");
+            Console.Out.WriteLine("-------------------------------------------------------------------------------------------------------");
+
+            foreach (Path cycle in paths)
+            {
+                Console.Out.WriteLine(cycle.ToString());
             }
 
             Console.Out.WriteLine();

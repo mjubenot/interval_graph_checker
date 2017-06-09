@@ -10,14 +10,10 @@ namespace intervalGraphChecker
     {
         Node start;
         List<Node> memory;
-        public Cycle(Node start, Node current, List<Node> memory = null) 
+        public Cycle(Node start, Node end, List<Node> memory = null) 
         {
             this.start = start;
-            this.Memory = new List<Node>(memory);
-            if (start != current)
-            {
-                throw new Exception(" A cycle need to have the same start and end point");
-            }
+            Memory = new List<Node>(memory);
         }
 
         internal List<Node> Memory { get => memory; set => memory = value; }

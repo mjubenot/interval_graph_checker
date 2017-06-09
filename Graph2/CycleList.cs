@@ -52,24 +52,23 @@ namespace intervalGraphChecker
         {
 
             CycleList outCycleList = new CycleList();
-            for (int i = minMemoryCycle; i < maxMemoryCycle; i++)
+            for (int cycleSizeToCheck = minMemoryCycle; cycleSizeToCheck < maxMemoryCycle; cycleSizeToCheck++)
             {
-                var cycleListToCheck = this.Where(Cycle => Cycle.GetAllNode().Count == i);
+                var cycleListToCheck = this.Where(Cycle => Cycle.GetAllNode().Count == cycleSizeToCheck);
 
                 foreach (Cycle cycleToCheck in cycleListToCheck)
                 {
-                    int numberOfNodes = cycleToCheck.GetAllNode().Count;
                     bool isSubCycleSameAsSmallerCycle = false;
-                    for (int j = 0; j < numberOfNodes; j++)
+                    for (int startingNode = 0; startingNode < cycleSizeToCheck; startingNode++)
                     {
-                        for (int subCircleSize = 4; subCircleSize < numberOfNodes; subCircleSize++)
+                        for (int subCircleSize = 4; subCircleSize < cycleSizeToCheck; subCircleSize++)
                         {
                             List<Node> subMemory = new List<Node>();
                             for(int k=1;k< subCircleSize; k++)
                             {
-                                subMemory.Add(cycleToCheck.GetAllNode().ElementAt((j + k) % numberOfNodes));
+                                subMemory.Add(cycleToCheck.GetAllNode().ElementAt((startingNode + k) % cycleSizeToCheck));
                             }
-                            Cycle subCycle = new Cycle(cycleToCheck.GetAllNode().ElementAt(j), cycleToCheck.GetAllNode().ElementAt(j), subMemory);
+                            Cycle subCycle = new Cycle(cycleToCheck.GetAllNode().ElementAt(startingNode), cycleToCheck.GetAllNode().ElementAt(startingNode), subMemory);
                             foreach (Cycle smallerCycle in outCycleList)
                             {
                                 if (subCycle.IsSameCycleAs(smallerCycle))
